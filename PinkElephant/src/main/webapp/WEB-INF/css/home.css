@@ -1,0 +1,338 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.container {
+    padding: 10px;
+    margin: 0;
+}
+
+header {
+    background-color: #fffcf3;
+    max-width: 100%; /* Set your desired max-width */
+    margin: 0; /* Center the header horizontally */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    width: 80%; /* Set the desired width */
+    margin: 0 auto; /* Center the header-container */
+    padding: 15px; /* Apply padding to the left and right */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    background-color: #f5898a;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f5898a;
+    border-radius: 30px;
+}
+
+.header-left {
+    /* Left side of the header with some content */
+    flex: 40%; /* Set the width to 40% */
+    flex-shrink: 0; /* Prevent it from shrinking */
+    font-weight: bold;
+    font-size: 30px; /* Adjust the font size as needed */
+    padding-left: 30px; /* Add padding to the left */
+    color: #fff;
+    margin-left:30px;
+    text-align:left;
+    margin-bottom: 5px; /* Adjust as needed */
+}
+
+.header-left button.projects {
+    /* Styles for the button with the class 'projects' */
+    background-color: #fff;
+    color: #767776; /* Text color */
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px 50px; 
+}
+
+.header-left button.projects:hover {
+    /* Hover styles for the button */
+    background-color: #f5898a;
+    color: #fff; /* Text color on hover */
+}
+
+
+.header-right {
+    /* Right side of the header with slides */
+    flex: 60%; /* Set the width to 60% */
+    flex-grow: 1; /* Take available space */
+}
+
+.logo {
+    max-width: 100px;
+    margin-left: 40px;
+    padding: 15px;
+}
+
+/* Add this style for the menu button */
+.menu-button {
+    margin-right: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 40px;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 3px;
+    background-color: #333; /* Adjust the color as needed */
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+.menu-button.open .menu-icon:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-button.open .menu-icon:nth-child(2) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark shade */
+    display: none;
+    z-index: 998; /* Lower z-index to allow click-through */
+}
+
+.overlay.open-overlay {
+    display: block;
+}
+
+.menu-card {
+    position: fixed;
+    top: 5%; /* Adjust from the top as needed */
+    right: -50%; /* Adjust the initial position off-screen to the right */
+    width: 50%; /* Set the initial width to half of the screen */
+    height: 90%; /* Adjust the height as needed */
+    background-color: #f37271; /* Set your desired background color */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease, width 0.3s ease; /* Transition for smooth movement */
+    z-index: 999; /* Higher z-index to appear above overlay */
+    overflow: hidden; /* Hide overflow content */
+    border-top-left-radius: 20px; /* Adjust the radius as needed */
+    border-bottom-left-radius: 20px; /* Adjust the radius as needed */
+}
+
+
+.menu-card.open {
+    right: 0; /* Move the card into the viewport */
+    width: 30%; /* Set the width to half of the screen when open */
+}
+
+.menu-card-content {
+    padding: 20px; /* Add padding to the menu-card-content */
+}
+
+.menu-card-top,
+.menu-card-center,
+.menu-card-bottom {
+    margin-top: 20px; /* Add margin between each section */
+}
+
+.menu-card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.menu-card-top a {
+    display: block;
+    color: #fff; /* Set your desired text color */
+    font-weight: bold;
+    margin-bottom: 10px; /* Adjust spacing between links as needed */
+    transition: color 0.3s; /* Add smooth transition for color change on hover */
+    font-size:40px;
+}
+
+.menu-card-top a:hover {
+    color: #000; /* Set your desired hover color */
+    text-decoration: none;
+}
+
+.menu-card-center p {
+    /* Styles for menu-card-center */
+    font-size: 14px; /* Adjust font size as needed */
+    line-height: 1.5; /* Adjust line height as needed */
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.menu-card-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.menu-card-bottom button {
+    background-color: #f37271; /* Set your desired background color */
+    color: #fff; /* Set text color */
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Apply border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add smooth transition for background color change on hover */
+}
+
+.menu-card-bottom button:hover {
+    background-color: #fff; /* Set the background color on hover */
+    color: #f37271; /* Set text color on hover */
+}
+
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #fff;
+}
+
+
+/* Add styling for the slideshow */
+#transitionSlideShowPage {
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Set the max-width for the slideshow */
+    margin: auto; /* Center the slideshow horizontally */
+    overflow: hidden; /* Ensure hidden overflow for rounded borders */
+}
+
+.slideshow-container .slide {
+    display: none;
+    text-align: center; /* Center the content */
+}
+
+.slideshow-container .slide.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-container img {
+    width: 100%; /* Make the images fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px; /* Add border radius for curved borders */
+}
+
+#slideDots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.activeDot {
+    background-color: #717171;
+}
+
+.footer-wrapper {
+    flex-grow: 1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f37372;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 15px; /* Adjust the radius as needed */
+    border-top-right-radius: 15px; /* Adjust the radius as needed */
+    margin-top: auto; /* This pushes the footer to the bottom */
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+}
+
+.footer img {
+    width: 30px; /* Adjust the size of the icons as needed */
+    margin: 0 10px; /* Adjust the spacing between icons as needed */
+}
+
+.center p {
+    margin: 0; /* Remove default margin for the paragraph */
+}
+
+.center a {
+    margin: 30px; /* Adjust spacing between anchor tags as needed */
+    color: #fff; /* Set the default color for anchor tags */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Add smooth transition for color change on hover */
+    font-weight: bold; /* Add bold font style */
+}
+
+.center a:hover {
+    color: #000000; /* Change text color to white on hover */
+    text-decoration: none; /* Remove underline */
+}
+
+.right a {
+    margin-right: 25px; /* Adjust spacing between anchor tags as needed */
+}
+
+.fab {
+    color: #fff;
+}
+
+.fab:hover{
+	color:#000000
+}
