@@ -81,6 +81,8 @@ header {
     /* Right side of the header with slides */
     flex: 60%; /* Set the width to 60% */
     flex-grow: 1; /* Take available space */
+    margin-bottom:20px;
+    margin-right:20px;
 }
 
 .logo {
@@ -194,14 +196,15 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 20px; /* Adjust padding as needed */
+    margin-left: 20px;
 }
 
 .menu-card-bottom button {
     background-color: #f37271; /* Set your desired background color */
     color: #fff; /* Set text color */
     border: none;
-    padding: 10px 20px; /* Adjust padding as needed */
-    border-radius: 5px; /* Apply border-radius */
+    padding: 5px 15px; /* Adjust padding as needed */
+    border-radius: 20px; /* Apply border-radius */
     cursor: pointer;
     transition: background-color 0.3s; /* Add smooth transition for background color change on hover */
 }
@@ -223,6 +226,9 @@ header {
     color: #fff;
 }
 
+.close-button:hover{
+	color:#000;
+}
 
 /* Add styling for the slideshow */
 #transitionSlideShowPage {
@@ -274,6 +280,60 @@ header {
 
 .activeDot {
     background-color: #717171;
+}
+
+.aboutus-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px; /* Adjust the padding as needed */
+	margin-top: 20px;
+    /* Optional: To add some spacing between aboutus-left and aboutus-right */
+    gap: 20px;
+}
+
+.aboutus-content {
+    display: flex;
+    align-items: flex-start;
+    margin: 50px;
+    font-style: Poppins-Regular;
+}
+
+.aboutus-left {
+    /* To make div tags inside aboutus-left display one below the other */
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    margin-left: 30px;
+}
+
+.aboutus-title{
+	font-weight: bold; /* Add bold font style */
+	font-size: 30px;
+	color: #f37271;
+}
+
+.aboutus-right {
+    /* Fixed size and right alignment with padding */
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 500px; /* Adjust the width as needed */
+    padding-right: 150px; /* Adjust the padding as needed */
+    text-align: right;
+}
+
+.viewmorebtn {
+    background-color: #828383; /* Set your desired background color */
+    color: #fff; /* Set the text color */
+    padding: 5px 30px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    border: none; /* Remove border */
+    border-radius: 30px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+/* Style for button hover state */
+.viewmorebtn:hover {
+    background-color: #d55e5d; /* Set a different color on hover */
 }
 
 .footer-wrapper {

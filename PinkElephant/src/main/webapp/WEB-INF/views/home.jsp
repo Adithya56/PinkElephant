@@ -109,7 +109,7 @@
     <div class="header">
 		<div class="header-top">
             <!-- Logo on the top left -->
-           	<img src="./images/pinkelephantlogo.png" alt="logo" class="logo">
+           	<img src="./images/pinkelephantlogo.jpeg" alt="logo" class="logo">
 
           	<!-- Menu button on the top right -->
 			<button class="menu-button" onclick="toggleMenu()">
@@ -158,16 +158,16 @@
 			            <div id="transitionSlideShowPage">
 			                <div class="slideshow-container">
 			                    <div class="slide active">
-			                        <img src="https://www.stuff.tv/wp-content/uploads/sites/2/2021/04/Stuff-Best-Laptop-Lead.png"  alt="Slide 1" onclick="#" style="height:400px; width:600px;"/>
+			                        <img src="https://www.stuff.tv/wp-content/uploads/sites/2/2021/04/Stuff-Best-Laptop-Lead.png"  alt="Slide 1" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/05/Apple-Earbuds-and-Sony-headphones-side-by-side.jpg" alt="Slide 2" onclick="#" style="height:400px; width:600px;"/>
+			                        <img src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/05/Apple-Earbuds-and-Sony-headphones-side-by-side.jpg" alt="Slide 2" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://chamberhill.com/wp-content/uploads/2021/10/pexels-cottonbro-3945683-scaled.jpg" alt="Slide 3" onclick="#" style="height:400px; width:600px;"/>
+			                        <img src="https://chamberhill.com/wp-content/uploads/2021/10/pexels-cottonbro-3945683-scaled.jpg" alt="Slide 3" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://assets.thehansindia.com/h-upload/2022/04/30/1600x960_1289668-mobiles-11.jpg" alt="Slide 4" onclick="#" style="height:400px; width:600px;"/>
+			                        <img src="https://assets.thehansindia.com/h-upload/2022/04/30/1600x960_1289668-mobiles-11.jpg" alt="Slide 4" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <!-- Add sliding dots container within the slideshow container -->
 			                    <div id="slideDots"></div>
@@ -178,13 +178,25 @@
 	        </div>
 	    </div>
     </header>
-
-    <!-- Spinner -->
-    <div id="spinner-container">
-        <div id="spinner"></div>
-    </div>
-
-
+	<main>
+		<div class="aboutus-main">
+			<div class="aboutus-content">
+				<div class="aboutus-left">
+					<div class="aboutus-title"><p>About Us</p></div>
+					<div class="aboutus-desc"><p>We make films and campaigns that we care about. From in-house passion projects to
+					high-end commercials with some of the best agencies and production companies around.
+					We've built a community of established and upcoming talent ready to do their best work yet.</p>
+					</div>
+					<div class="aboutus-viewmorebtn">
+						<button class="viewmorebtn">view more</button>
+					</div>
+				</div>
+				<div class="aboutus-right">
+					<img alt="pinkelephanticon" src="./images/pereel.png">
+				</div>
+			</div>
+		</div>
+	</main>
 <br>
 <div class="footer-wrapper">
     <div class="footer">
