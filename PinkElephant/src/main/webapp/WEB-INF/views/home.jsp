@@ -1,3 +1,4 @@
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,6 @@
     
 	<link rel="stylesheet" type="text/css" href="./css/home.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="./js/home.js"></script> -->
  	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -16,7 +16,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-    $(document).ready(function () {
+<%--     $(document).ready(function () {
         var slides = $('.slide');
         var currentSlide = 0;
 
@@ -75,6 +75,18 @@
 		    }
 		}
 
+	// Function to handle Services button click and redirect to services.jsp
+	    function redirectToServicesPage() {
+		    console.log("Redirecting to services.jsp");
+		    window.location.href = "services";
+		}
+
+
+	    $('#services').on('click', function (e) {
+	        e.preventDefault();
+	        console.log("Services link clicked");
+	        redirectToServicesPage();
+	    });
 
 
         // Start the slideshow
@@ -84,9 +96,9 @@
         
         
     });
-        <%--  var customerSession = {
+         var customerSession = {
             customer: '<%= session.getAttribute("customer") %>'
-        }; --%>
+        };
         function toggleMenu() {
             var menuCard = document.querySelector('.menu-card');
             var overlay = document.querySelector('.overlay');
@@ -99,50 +111,14 @@
             var overlay = document.querySelector('.overlay');
             menuCard.classList.remove('open');
             overlay.classList.remove('open-overlay');
-        }
+        } --%>
+        
     </script>
 </head>
 
 <body>
-
     <header>
     <div class="header">
-		<div class="header-top">
-            <!-- Logo on the top left -->
-           	<img src="./images/pinkelephantlogo.jpeg" alt="logo" class="logo">
-
-          	<!-- Menu button on the top right -->
-			<button class="menu-button" onclick="toggleMenu()">
-			    <div class="menu-icon"></div>
-			    <div class="menu-icon"></div>
-			</button>
-  
-		 	<!-- Menu card -->
-	        <div class="overlay"></div>
-	            <div class="menu-card">
-	                <button class="close-button" onclick="closeMenu()">X</button>
-	                <div class="menu-card-content">
-		                <!-- Your buttons and content go here -->
-		                <div class="menu-card-top">
-			                <a href="#">Services</a>
-			                <a href="#">About</a>
-			                <a href="#">Team</a>
-			                <a href="#">Blog</a>
-		                </div>
-		                <div class="menu-card-center">
-		                	<p>+91 9574634568</br>hello@pinkelephant.com</br>Madhapur, Hyderabad</p>
-		                </div>
-		                <div class="menu-card-bottom">
-			                <button>Vimeo</button>
-			                <button>Instagram</button>
-			                <button>Facebook</button>
-			                <button>Youtube</button>
-			            </div>
-	            	</div>
-	            </div>
-          	</div>
-
-
 			<!-- Combined header-left and header-right in a single div -->
           	<div class="header-content">
                 <!-- Left side of the header with some content -->
@@ -158,16 +134,16 @@
 			            <div id="transitionSlideShowPage">
 			                <div class="slideshow-container">
 			                    <div class="slide active">
-			                        <img src="https://www.stuff.tv/wp-content/uploads/sites/2/2021/04/Stuff-Best-Laptop-Lead.png"  alt="Slide 1" onclick="#" style="height:300px; width:500px;"/>
+			                        <img src="https://images.ottplay.com/images/hello-world-847.jpg?impolicy=ottplay-20210210&width=1200&height=675&format=webp&quality=50"  alt="Slide 1" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/05/Apple-Earbuds-and-Sony-headphones-side-by-side.jpg" alt="Slide 2" onclick="#" style="height:300px; width:500px;"/>
+			                        <img src="https://i.ytimg.com/vi/006lcgd6bIk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA8a448Y-1Onxd3EVOQ2xtMDBCFUQ" alt="Slide 2" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://chamberhill.com/wp-content/uploads/2021/10/pexels-cottonbro-3945683-scaled.jpg" alt="Slide 3" onclick="#" style="height:300px; width:500px;"/>
+			                        <img src="https://i.ytimg.com/vi/l9rjOPN7a38/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCrcHOLotR6i6IxFTQnCWE47-cVwA" alt="Slide 3" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <div class="slide">
-			                        <img src="https://assets.thehansindia.com/h-upload/2022/04/30/1600x960_1289668-mobiles-11.jpg" alt="Slide 4" onclick="#" style="height:300px; width:500px;"/>
+			                        <img src="https://d1vzdswwroofzl.cloudfront.net/wp-content/uploads/2016/03/Mudda-Pappu-Avakai-Telugu-YouTube-Series.jpg" alt="Slide 4" onclick="#" style="height:300px; width:500px;"/>
 			                    </div>
 			                    <!-- Add sliding dots container within the slideshow container -->
 			                    <div id="slideDots"></div>
@@ -182,7 +158,7 @@
 		<div class="aboutus-main">
 			<div class="aboutus-content">
 				<div class="aboutus-left">
-					<div class="aboutus-title"><p>About Us</p></div>
+					<div class="aboutus-title"><h2>About Us</h2></div>
 					<div class="aboutus-desc"><p>We make films and campaigns that we care about. From in-house passion projects to
 					high-end commercials with some of the best agencies and production companies around.
 					We've built a community of established and upcoming talent ready to do their best work yet.</p>
@@ -192,39 +168,57 @@
 					</div>
 				</div>
 				<div class="aboutus-right">
-					<img alt="pinkelephanticon" src="./images/pereel.png">
+					<img alt="pinkelephanticon" src="./images/pereel.png" >
 				</div>
 			</div>
 		</div>
+		
+		<div class="divisions-main">
+			<div class="divisions-top">
+				<h2 class="divisions-heading">Our divisions</h2>
+			</div>
+			<div class="divisions-row">
+				<div class="divisions-box-1">
+					<div class="divisions-box-img">
+					
+					</div>
+					<div class="divisions-box-title">
+						<h3 class="divisions-category">Films</h3>
+						<p>to the portfolio</p>
+					</div>
+				</div>
+				<div class="divisions-box-2">
+					<div class="divisions-box-img">
+					
+					</div>
+					<div class="divisions-box-title">
+						<h3 class="divisions-category">Webseries</h3>
+						<p>to the portfolio</p>
+					</div>
+				</div>
+				<div class="divisions-box-3">
+					<div class="divisions-box-img">
+					
+					</div>
+					<div class="divisions-box-title">
+						<h3 class="divisions-category">Experiment Films</h3>
+						<p>to the portfolio</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story-main">
+			<div class="story-left">
+				<p>There is a story behind every door.</p>
+			</div>
+			<div class="story-right">
+				<button class="idea">Have any idea?</button>
+			</div>
+		</div>
+		
 	</main>
-<br>
-<div class="footer-wrapper">
-    <div class="footer">
-        <div class="left">
-            <!-- Your icon on the left -->
-            <img src="/images/pinkelephantlogo.jpg alt="pinkelephant">
-        </div>
-        <div class="center">
-            <!-- Your centered text -->
-            <p>
-                <a href="#">ABOUT US</a> 
-                <a href="#">TEAM</a> 
-                <a href="#">PROJECTS</a> 
-                <a href="#">HIRING</a> 
-                <a href="#">GET IN TOUCH</a>
-            </p>
-        </div>
-        <div class="right">
-            <!-- Your social media icons on the right -->
-            <a href="#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-		    <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-		    <a href="#" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-		    <a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
-            <!-- Add more social media icons as needed -->
-        </div>
-    </div>
-</div>
-
+<%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
