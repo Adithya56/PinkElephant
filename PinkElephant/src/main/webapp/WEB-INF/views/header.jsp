@@ -30,13 +30,14 @@
 			 	<!-- Menu card -->
 		        <div class="overlay"></div>
 		            <div class="menu-card">
+		               <!--  <button class="home-button" onclick="closeMenu">Home</button> -->
 		                <button class="close-button" onclick="closeMenu()">X</button>
 		                <div class="menu-card-content">
 			                <!-- Your buttons and content go here -->
 			                <div class="menu-card-top">
 				                <a href="services" id="services">Services</a>
 				                <a href="about" id="about">About</a>
-				                <a href="#">Team</a>
+				                <a href="about#team">Team</a>
 				                <a href="#">Blog</a>
 			                </div>
 			                <div class="menu-card-center">

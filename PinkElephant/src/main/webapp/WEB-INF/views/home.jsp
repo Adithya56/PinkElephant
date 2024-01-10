@@ -14,106 +14,6 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <script>
-<%--     $(document).ready(function () {
-        var slides = $('.slide');
-        var currentSlide = 0;
-
-        // Function to show the current slide
-        function showSlide() {
-    	    // Hide all slides
-    	    slides.removeClass('active');
-    	    // Show the current slide
-    	    slides.eq(currentSlide).addClass('active');
-    	    // Update dots
-    	    updateDots();
-    	}
-
-
-        // Function to move to the next slide
-        function nextSlide() {
-            currentSlide++;
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-            showSlide();
-            // Call nextSlide after 3 seconds
-            setTimeout(nextSlide, 3000);
-        }
-
-       // Function to create sliding dots
-	    function createDots() {
-	        var dotsContainer = document.getElementById('slideDots');
-	        for (var i = 0; i < slides.length; i++) {
-	            var dot = document.createElement('span');
-	            dot.className = 'dot';
-	            dot.setAttribute('data-slide', i);
-	            dot.onclick = function () {
-	                currentSlide = parseInt(this.getAttribute('data-slide'));
-	                showSlide();
-	            };
-	            dotsContainer.appendChild(dot);
-	        }
-	        updateDots();
-	    }
-	
-	    // Function to update sliding dots based on the current slide
-	   function updateDots() {
-		    var dots = document.getElementsByClassName('dot');
-		
-		    // Ensure that currentSlide is within bounds
-		    if (currentSlide >= 0 && currentSlide < dots.length) {
-		        for (var i = 0; i < dots.length; i++) {
-		            dots[i].classList.remove('activeDot');
-		        }
-		
-		        // Check if dots[currentSlide] is defined before adding the class
-		        if (dots[currentSlide]) {
-		            dots[currentSlide].classList.add('activeDot');
-		        }
-		    }
-		}
-
-	// Function to handle Services button click and redirect to services.jsp
-	    function redirectToServicesPage() {
-		    console.log("Redirecting to services.jsp");
-		    window.location.href = "services";
-		}
-
-
-	    $('#services').on('click', function (e) {
-	        e.preventDefault();
-	        console.log("Services link clicked");
-	        redirectToServicesPage();
-	    });
-
-
-        // Start the slideshow
-        nextSlide();
-        // Create dots after starting the slideshow
-        createDots();
-        
-        
-    });
-         var customerSession = {
-            customer: '<%= session.getAttribute("customer") %>'
-        };
-        function toggleMenu() {
-            var menuCard = document.querySelector('.menu-card');
-            var overlay = document.querySelector('.overlay');
-            menuCard.classList.toggle('open');
-            overlay.classList.toggle('open-overlay');
-        }
-
-        function closeMenu() {
-            var menuCard = document.querySelector('.menu-card');
-            var overlay = document.querySelector('.overlay');
-            menuCard.classList.remove('open');
-            overlay.classList.remove('open-overlay');
-        } --%>
-        
-    </script>
 </head>
 
 <body>
@@ -180,7 +80,7 @@
 			<div class="divisions-row">
 				<div class="divisions-box-1">
 					<div class="divisions-box-img">
-					
+						<img src="https://i.ytimg.com/vi/l9rjOPN7a38/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCrcHOLotR6i6IxFTQnCWE47-cVwA" alt="films" style="height: 200px ;width: 300px;">
 					</div>
 					<div class="divisions-box-title">
 						<h3 class="divisions-category">Films</h3>
@@ -189,7 +89,7 @@
 				</div>
 				<div class="divisions-box-2">
 					<div class="divisions-box-img">
-					
+						<img id="img3" src="https://d1vzdswwroofzl.cloudfront.net/wp-content/uploads/2016/03/Mudda-Pappu-Avakai-Telugu-YouTube-Series.jpg" alt="Image 4" style="height:200px ;width: 300px;">
 					</div>
 					<div class="divisions-box-title">
 						<h3 class="divisions-category">Webseries</h3>
@@ -198,7 +98,7 @@
 				</div>
 				<div class="divisions-box-3">
 					<div class="divisions-box-img">
-					
+						<img id="img2"  src="https://images.ottplay.com/images/hello-world-847.jpg?impolicy=ottplay-20210210&width=1200&height=675&format=webp&quality=50" alt="Image 3" style="height:200px ;width: 300px;">
 					</div>
 					<div class="divisions-box-title">
 						<h3 class="divisions-category">Experiment Films</h3>
@@ -216,11 +116,10 @@
 				<button class="idea">Have any idea?</button>
 			</div>
 		</div>
-		
+		<%@ include file="projects.jsp" %>
 	</main>
 <%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>

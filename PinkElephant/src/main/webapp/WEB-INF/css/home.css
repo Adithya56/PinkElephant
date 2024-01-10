@@ -132,6 +132,7 @@ header {
 }
 
 .menu-card {
+	font-family: AlbraTRIAL-Regular-Identity-H;
     position: fixed;
     top: 5%; /* Adjust from the top as needed */
     right: -50%; /* Adjust the initial position off-screen to the right */
@@ -359,20 +360,21 @@ header {
 .divisions-row {
   display: flex;
   justify-content: space-around;
-  align-items: stretch;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .divisions-box-1,
 .divisions-box-2,
 .divisions-box-3 {
-  flex: 1;
-  margin: 50px;
+  flex: 0 0 calc(33.33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
-.divisions-box-img {
-  background-color: #e0e0e0; /* Add background color for better visibility */
-  height: 100px; /* Set the desired height */
-  border-radius: 30px;
+.divisions-box-img img {
+  max-width: 100%;
+  height: auto;
 }
 
 .divisions-box-title {
@@ -461,6 +463,7 @@ header {
 }
 
 .center a {
+	font-family: AlbraTRIAL-Regular-Identity-H;
     margin: 30px; /* Adjust spacing between anchor tags as needed */
     color: #fff; /* Set the default color for anchor tags */
     text-decoration: none; /* Remove underline */

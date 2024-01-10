@@ -15,11 +15,11 @@
         <div class="center">
             <!-- Your centered text -->
             <p>
-                <a href="#">ABOUT US</a> 
-                <a href="#">TEAM</a> 
-                <a href="#">PROJECTS</a> 
+                <a href="about">ABOUT US</a> 
+                <a href="about#team">TEAM</a> 
+                <a href="services#projects">PROJECTS</a> 
                 <a href="#">HIRING</a> 
-                <a href="#">GET IN TOUCH</a>
+                <a href="contact-us">GET IN TOUCH</a>
             </p>
         </div>
         <div class="right">

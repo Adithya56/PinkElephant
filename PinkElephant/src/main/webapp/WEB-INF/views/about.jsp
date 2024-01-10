@@ -82,12 +82,12 @@
     </style>
 </head>
 <body>
-	<div class="about-top">
+	<div class="about-top" id="about-top">
 		<p class="about-head">About</p>
 		<p class="about-desc">Award-winning full-service</br>content creation studio.</p>
 		<button class="about-view-reel">View reel</button>
 	</div>
-	<div class="about-center">
+	<div class="about-center" id="team">
 		<div class="about-center-left">
 			<p class="about-center-left-head">The people</br>behind</br>Pink Elephant</br>Pictures</p>
 			<p class="about-center-left-desc">We make films and campaigns that we care about.</br>From in-house passion projects to high-end</br>commercials with some of the best agencies and</br>production companies around. We've built a</br>community of established and upcoming talent</br>ready to do their best work yet.</p>
@@ -96,14 +96,14 @@
 		
 		</div>
 	</div>
-	<div class="about-bottom">
+	<div class="about-bottom" id="about-bottom">
 		<h2>Awards and recognitions</h2>
 		<div class="about-bottom-scroll">
 		
 		</div>
 	</div>
-</body>
 <%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -15,8 +15,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="./js/home.js"></script>
  <style>
+
+	*{        
+		font-family: AlbraTRIAL-Regular-Identity-H;
+	}
+	
     body {
-        font-family: AlbraTRIAL-Regular-Identity-H;
         margin: 0;
         padding: 0;
         background-color: #fffcf3; /* Set background color for the body */
@@ -191,40 +195,37 @@
             });
         }
 
-        function displayDataOfServices(data, className) {
-            var container = $(".services-top-bottom");
-            container.empty(); // Clear existing content
-
-            // Iterate over the array list and append each item to the container
-            for (var i = 0; i < data.length; i++) {
-                var itemHTML = "<div class='" + className + "-item'>" + data[i] + "</div>";
-                container.append(itemHTML);
-            }
-        }
-
         function setBackgroundImage(className) {
             var imageUrl;
-
-            // Set image URL based on the clicked button
+            var fontColor;
+            
+            // Set image URL and font color based on the clicked button
             switch (className) {
                 case "Creative":
                     imageUrl = "./images/creative.jpg";
+                    fontColor = "#000"; // Font color for Creative
                     break;
                 case "Pre-production":
-                    imageUrl = "url_to_pre_production_image.jpg";
+                    imageUrl = "./images/pre-production.jpeg";
+                    fontColor = "#000"; // Font color for Pre-production
                     break;
                 case "Production":
-                    imageUrl = "url_to_production_image.jpg";
+                    imageUrl = "./images/production.jpg";
+                    fontColor = "#ffffff"; // Font color for Production
                     break;
                 case "Post-production":
-                    imageUrl = "url_to_post_production_image.jpg";
+                    imageUrl = "./images/post-production.jpg";
+                    fontColor = "#ffffff"; // Font color for Post-production
                     break;
                 default:
                     imageUrl = ""; // Set a default image or leave it empty
+                    fontColor = ""; // Set a default font color or leave it empty
             }
 
-            // Set the background image of services-right
-            $(".services-right").css("background-image", "url(" + imageUrl + ")");
+            // Set the background image and font color of services-right
+            var servicesRight = $(".services-right");
+            servicesRight.css("background-image", "url(" + imageUrl + ")");
+            servicesRight.css("color", fontColor);
         }
     });
 </script>
@@ -282,8 +283,10 @@
 			</div>
 		</div>
 	</div>
-</body>
+
+<%@ include file="projects.jsp" %>
 <%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

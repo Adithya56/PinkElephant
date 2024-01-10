@@ -8,13 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pinkelephant.model.user.User;
 import com.pinkelephant.services.user.homeServices;
+import com.pinkelephant.model.user.sendEmail;
 
 
 @Controller
@@ -42,6 +45,26 @@ public class homeController {
 	public String showAboutPage() {
 		logger.info("PinkElephant.homeController  :  showAboutPage()");
 		return "about"; // This assumes you have a "about.jsp" file in your "WEB-INF/views/" directory
+	}
+
+	@RequestMapping("/projects")
+	public String showProjectsPage() {
+		logger.info("PinkElephant.homeController  :  showProjectsPage()");
+		return "projects"; // This assumes you have a "projects.jsp" file in your "WEB-INF/views/" directory
+	}
+
+	@RequestMapping("/contact-us")
+	public String showContactUsPage() {
+		logger.info("PinkElephant.homeController  :  showContactUsPage()");
+		return "contact-us"; // This assumes you have a "contact-us.jsp" file in your "WEB-INF/views/" directory
+	}
+	
+	@RequestMapping(value = "/sendEmailDetails", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean sendEmail(@ModelAttribute("user") User user) {
+	    logger.info("PinkElephant.homeController  :  sendEmailDetails()");
+		boolean generateEmail = (new sendEmail()).sendEmail(user);
+		return generateEmail; 
 	}
 
 	@PostMapping("/handleStockUpdation")
