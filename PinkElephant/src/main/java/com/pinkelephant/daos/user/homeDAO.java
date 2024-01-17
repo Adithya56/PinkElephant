@@ -1,5 +1,7 @@
 package com.pinkelephant.daos.user;
 
+import java.util.List;
+
 public interface homeDAO {
-	public String getServicesOnCategory(String category);
+	public List<String> getServicesOnCategory(String category);
 }

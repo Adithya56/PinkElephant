@@ -18,7 +18,7 @@
                 <a href="about">ABOUT US</a> 
                 <a href="about#team">TEAM</a> 
                 <a href="services#projects">PROJECTS</a> 
-                <a href="#">HIRING</a> 
+                <a href="hiring">HIRING</a> 
                 <a href="contact-us">GET IN TOUCH</a>
             </p>
         </div>

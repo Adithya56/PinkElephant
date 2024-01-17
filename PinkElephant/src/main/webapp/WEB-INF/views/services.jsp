@@ -121,21 +121,32 @@
 	    background-color: #fff;
 	    display: flex;
 	    flex-direction: column;
-	    align-items: center;
+	    align-items: flex-start; /* Align items to the left */
 	    padding: 20px;
 	    box-sizing: border-box;
 	    margin-right: 100px;
-	    background-repeat: no-repeat; /* Add this line to prevent background repetition */
+	    background-repeat: no-repeat;
 	    border-radius: 30px;
-	    background-size: cover; /* Add this line for background image to cover the container */
+	    background-size: cover;
+	    position: relative; /* Set position to relative to allow absolute positioning */
+	}
+	
+	.services-right-top,
+	.services-right-bottom {
+		padding: 20px;
+	    text-align: left;
+	    width: 100%; /* Take up the full width of the services-right */
+	    position: absolute; /* Set position to absolute */
+	}
+	
+	.services-right-top {
+	    top: 0; /* Position at the top */
+	}
+	
+	.services-right-bottom {
+	    bottom: 0; /* Position at the bottom */
 	}
 
-	 .services-right-top,
-        .services-right-bottom {
-            text-align: left;
-            margin-right: auto;
-        }
-	
 	
 	/* Apply media query for responsiveness */
 	@media (max-width: 768px) {
@@ -180,21 +191,34 @@
 	        return str.charAt(0).toUpperCase() + str.slice(1);
 	    }
 	    
-        function getServices(className) {
-            // Assuming your backend sends an array list as a response
-            $.ajax({
-                type: "POST", // or "POST", depending on your server configuration
-                url: "getServices", // Replace with your backend endpoint
-                data: { className: className }, // Pass className as data
-                success: function (response) {
-                    displayDataOfServices(response, className);
-                },
-                error: function (error) {
-                    console.error("Error fetching data from the server:", error);
-                }
-            });
-        }
+	    function getServices(className) {
+	        // Assuming your backend sends an array list as a response
+	        $.ajax({
+	            type: "POST", 
+	            url: "services/" + className, 
+	            success: function (response) {
+	                displayDataOfServices(response, className);
+	            },
+	            error: function (error) {
+	                console.error("Error fetching data from the server:", error);
+	            }
+	        });
+	    }
 
+        function displayDataOfServices(data) {
+            var servicesRightBottom = $(".services-right-bottom");
+            // Clear existing content
+            servicesRightBottom.html("");
+
+            // Split the string into an array of fields
+            var fields = data.split(',');
+
+            // Iterate through the fields and append them to the services-right-bottom div
+            for (var i = 0; i < fields.length; i++) {
+                servicesRightBottom.append('<p>' + fields[i] + '</p>');
+            }
+        }
+        
         function setBackgroundImage(className) {
             var imageUrl;
             var fontColor;
@@ -203,11 +227,11 @@
             switch (className) {
                 case "Creative":
                     imageUrl = "./images/creative.jpg";
-                    fontColor = "#000"; // Font color for Creative
+                    fontColor = "#fff"; // Font color for Creative
                     break;
                 case "Pre-production":
                     imageUrl = "./images/pre-production.jpeg";
-                    fontColor = "#000"; // Font color for Pre-production
+                    fontColor = "#fff"; // Font color for Pre-production
                     break;
                 case "Production":
                     imageUrl = "./images/production.jpg";

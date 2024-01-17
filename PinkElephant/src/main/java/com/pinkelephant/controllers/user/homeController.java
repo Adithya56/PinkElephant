@@ -1,30 +1,36 @@
 package com.pinkelephant.controllers.user;
 
-import java.util.List;
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pinkelephant.model.user.User;
+import com.pinkelephant.model.user.emailServices;
 import com.pinkelephant.services.user.homeServices;
 import com.pinkelephant.model.user.sendEmail;
 
 
 @Controller
 public class homeController {
+	
 	@Autowired
 	private homeServices homeservice;
-
+	@Autowired
+	private emailServices emailService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
 	// url mapping for home page
@@ -34,6 +40,26 @@ public class homeController {
 		// call the view
 		return "home";
 	}
+	
+	@RequestMapping("/services/{className}")
+	@ResponseBody
+	public String showServicesPage(@PathVariable String className, HttpSession session) {
+	    logger.info("PinkElephant.homeController: showServicesPage()");
+
+	    // Check if the data is already in the session
+	    String services = (String) session.getAttribute(className);
+
+	    if (services == null) {
+	        // If not in the session, query the database
+	        services = homeservice.getServicesOnCategory(className);
+
+	        // Store the result in the session
+	        session.setAttribute(className, services);
+	    }
+
+	    return services;
+	}
+
 	
 	@RequestMapping("/services")
 	public String showServicesPage() {
@@ -67,12 +93,24 @@ public class homeController {
 		return generateEmail; 
 	}
 
-	@PostMapping("/handleStockUpdation")
-	@ResponseBody
-	public List<String> getServicesOnCategory(@RequestParam(value = "className") String category) {
-		logger.info("PinkElephant.homeController  :  getServicesOnCategory()");
-		List<String> services = homeservice.getServicesOnCategory(category);
-		return services;
+	@RequestMapping("/hiring")
+	public String showHiringPage() {
+		logger.info("PinkElephant.homeController  :  showHiringPage()");
+		return "hiring"; // This assumes you have a "hiring.jsp" file in your "WEB-INF/views/" directory
 	}
+	
+	 @RequestMapping(path="/upload", method = RequestMethod.POST)
+	 @ResponseBody
+	    public String handleFileUpload(@RequestPart("file") MultipartFile file) {
+	        // Process the uploaded file
+	        // Send email with the uploaded file
+		 boolean status = false;
+	        try {
+	        	status = emailService.sendEmailWithAttachment(file.getBytes(), file.getOriginalFilename());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        return status+"";
+	    }
 
 }
