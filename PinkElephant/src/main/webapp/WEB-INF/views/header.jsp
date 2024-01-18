@@ -19,7 +19,10 @@
 
 			<div class="header-top">
 	            <!-- Logo on the top left -->
-	           	<img src="./images/pinkelephanticon.jpeg" alt="logo" class="logo" >
+	          	<a href="/PinkElephant/">
+				    <img src="./images/pinkelephanticon.jpeg" alt="logo" class="logo">
+				</a>
+
 	
 	          	<!-- Menu button on the top right -->
 				<button class="menu-button" onclick="toggleMenu()">
@@ -39,6 +42,7 @@
 				                <a href="about" id="about">About</a>
 				                <a href="about#team">Team</a>
 				                <a href="#">Blog</a>
+				                <a href="/PinkElephant/">Home</a>
 			                </div>
 			                <div class="menu-card-center">
 			                	<p>+91 9574634568</br>hello@pinkelephant.com</br>Madhapur, Hyderabad</p>

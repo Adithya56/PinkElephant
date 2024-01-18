@@ -14,6 +14,16 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script>
+		function scrollToProjects() {
+		    // Use JavaScript to scroll to the "projects" section
+		    var projectsSection = document.getElementById('projects');
+		    
+		    if (projectsSection) {
+		        projectsSection.scrollIntoView({ behavior: 'smooth' });
+		    }
+		}
+	</script>
 </head>
 
 <body>
@@ -24,7 +34,7 @@
                 <!-- Left side of the header with some content -->
                 <div class="header-left">
                     <p>We are filmmakers,</br> storytellers and </br> adventurers.</p>
-                    <button class="projects" onclick="#">Projects</button>
+                    <button class="projects" onclick="scrollToProjects()">Projects</button>
                 </div>
 
 	            <!-- Right side of the header with slides -->
@@ -75,7 +85,7 @@
 		
 		<div class="divisions-main">
 			<div class="divisions-top">
-				<h2 class="divisions-heading">Our divisions</h2>
+				<h2 class="divisions-heading">Our Divisions</h2>
 			</div>
 			<div class="divisions-row">
 				<div class="divisions-box-1">

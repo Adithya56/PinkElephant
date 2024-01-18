@@ -176,7 +176,7 @@ header {
     font-weight: bold;
     margin-bottom: 10px; /* Adjust spacing between links as needed */
     transition: color 0.3s; /* Add smooth transition for color change on hover */
-    font-size:40px;
+    font-size:30px;
 }
 
 .menu-card-top a:hover {
@@ -344,7 +344,7 @@ header {
 
 .divisions-main{
 	font-family: AlbraTRIAL-Regular-Identity-H;
-	margin-left: 50px; /* Add margin for better spacing */
+	margin-left: 90px; /* Add margin for better spacing */
 	margin-right: 50px; /* Add margin for better spacing */
 }
 
@@ -355,6 +355,7 @@ header {
 
 .divisions-heading {
   color: #f37271;
+  margin-left: -45px;
 }
 
 .divisions-row {
