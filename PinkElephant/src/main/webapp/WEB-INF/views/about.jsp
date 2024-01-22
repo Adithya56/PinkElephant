@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="./css/home.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -99,7 +98,7 @@
 	<div class="about-bottom" id="about-bottom">
 		<h2>Awards and recognitions</h2>
 		<div class="about-bottom-scroll">
-		
+			<%@ include file="awards.jsp" %>
 		</div>
 	</div>
 <%@ include file="footer.jsp" %>

@@ -1,6 +1,7 @@
 package com.pinkelephant.controllers.user;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,12 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pinkelephant.daos.user.homeDAO;
+import com.pinkelephant.model.user.Award;
 import com.pinkelephant.model.user.User;
 import com.pinkelephant.model.user.emailServices;
 import com.pinkelephant.services.user.homeServices;
@@ -30,6 +34,8 @@ public class homeController {
 	private homeServices homeservice;
 	@Autowired
 	private emailServices emailService;
+	@Autowired
+	private homeDAO hDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
@@ -68,8 +74,14 @@ public class homeController {
 	}
 
 	@RequestMapping("/about")
-	public String showAboutPage() {
-		logger.info("PinkElephant.homeController  :  showAboutPage()");
+	public String showAboutPage(Model model) {
+		logger.info("ENTERING: PinkElephant.homeController  :  showAboutPage()");
+//		hDAO.insertImage();
+		List<Award> awardsData = hDAO.fetchAwards();
+        // Add awards data to the model
+        model.addAttribute("awardsData", awardsData);
+        
+        logger.info("LEAVING: PinkElephant.homeController  :  showAboutPage()");
 		return "about"; // This assumes you have a "about.jsp" file in your "WEB-INF/views/" directory
 	}
 
@@ -112,5 +124,5 @@ public class homeController {
 			}
 	        return status+"";
 	    }
-
+	 
 }
