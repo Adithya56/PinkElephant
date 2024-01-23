@@ -19,13 +19,14 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pinkelephant.daos.user.FilmImagesDAO;
 import com.pinkelephant.daos.user.homeDAO;
 import com.pinkelephant.model.user.Award;
 import com.pinkelephant.model.user.User;
 import com.pinkelephant.model.user.emailServices;
 import com.pinkelephant.services.user.homeServices;
 import com.pinkelephant.model.user.sendEmail;
-
+import com.pinkelephant.model.user.Films;
 
 @Controller
 public class homeController {
@@ -36,6 +37,8 @@ public class homeController {
 	private emailServices emailService;
 	@Autowired
 	private homeDAO hDAO;
+	@Autowired
+	private FilmImagesDAO filmImagesDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
@@ -44,6 +47,9 @@ public class homeController {
 	public String getHomePage(Model model) {
 	logger.info("PinkElephant.homeController  :  getHomePage()");
 		// call the view
+	List<Films> awardsData = filmImagesDAO.getFilmImages();
+        // Add awards data to the model
+        model.addAttribute("awardsData", awardsData);
 		return "home";
 	}
 	
@@ -68,8 +74,11 @@ public class homeController {
 
 	
 	@RequestMapping("/services")
-	public String showServicesPage() {
+	public String showServicesPage(Model model) {
 		logger.info("PinkElephant.homeController  :  showServicesPage()");
+		List<Films> awardsData = filmImagesDAO.getFilmImages();
+	        // Add awards data to the model
+	        model.addAttribute("awardsData", awardsData);
 		return "services"; // This assumes you have a "services.jsp" file in your "WEB-INF/views/" directory
 	}
 

@@ -46,12 +46,13 @@
 <body>
     <div class="about-bottom" id="about-bottom">
         <div class="about-bottom-scroll" id="awardsContainer">
-            <% 
+            <%
                 List<Award> awardsData = (List<Award>) request.getAttribute("awardsData");
                 for (Award award : awardsData) {
+                    String base64Image = award.getBase64Image();
             %>
             <div class="award-card">
-                <img src="data:image/jpeg;base64,${award.image}" width="240" height="200" class="award-card-img"/>
+                <img src="data:image/jpeg;base64, <%= base64Image %>" width="240" height="200" class="award-card-img"/>
                 <div class="award-card-content">
                     <h3><%= award.getTitle() %></h3>
                 </div>

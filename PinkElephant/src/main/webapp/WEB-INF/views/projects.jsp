@@ -1,72 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.pinkelephant.model.user.Films" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        .posters {
+        .about-bottom-scroll {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-		.posters-top{
-			margin-top: 50px;
-			margin-bottom: -20px;
-		}
-		
-		.posters-bottom {
-			margin-top: -10px;
-			margin-bottom: 20px;
-		}
-		
-        .posters-top,
-        .posters-bottom {
-            display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
-            padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
+            margin: 100px 0;
         }
 
-        .posters img {
-            max-width: 100%;
+        .award-card {
+            flex-basis: calc(33.33% - 10px); /* One-third of the available width with 10px margin between cards */
+            margin: 5px;
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center; /* Center the content within the .award-card */
+        }
+
+        .award-card-img {
+            width: 50%; /* Use 100% width to make sure the image fills the container */
             height: auto;
-            display: block;
-            margin-bottom: 0; /* No space between images */
+            border-radius: 20px;
+            margin: 0 auto; /* Center the image horizontally */
         }
-        #img1{
-        	margin-left:150px;
+
+        .award-card-content {
+            padding: 10px;
+            text-align: center;
+            background-color: #f5f5f5;
+            border-radius: 0 0 20px 20px;
         }
-         #img3{
-        	margin-right:150px;
-        }
-        #img4{
-        	margin-left:200px;
-        }
-         #img6{
-        	margin-right:200px;
+
+        h3 {
+            margin: 0;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="posters" id="projects">
-        <div class="posters-top">
-            <img id="img1" src="https://images.ottplay.com/images/hello-world-847.jpg?impolicy=ottplay-20210210&width=1200&height=675&format=webp&quality=50" alt="Image 1" style="height:200px ;width: 300px;">
-            <img id="img2"  src="https://i.ytimg.com/vi/l9rjOPN7a38/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCrcHOLotR6i6IxFTQnCWE47-cVwA" alt="Image 3" style="height:200px ;width: 300px;">
-            <img id="img3" src="https://d1vzdswwroofzl.cloudfront.net/wp-content/uploads/2016/03/Mudda-Pappu-Avakai-Telugu-YouTube-Series.jpg" alt="Image 4" style="height:200px ;width: 300px;">
-        </div>
-        <div class="posters-bottom">
-            <img id="img4"  src="https://i.ytimg.com/vi/006lcgd6bIk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA8a448Y-1Onxd3EVOQ2xtMDBCFUQ" alt="Image 2" style="height:250px ;width: 300px;">
-            <img id="img5" src="https://images.moviebuff.com/79ed47ff-66a3-4cea-8a42-61c78c7d5a9e?w=500" alt="Image 5" style="height:250px ;width:200px;">
-            <img id="img6" src="https://i.ytimg.com/vi/K_qevXCW1uY/maxresdefault.jpg" alt="Image 6" style="height:250px ;width: 300px;">
+    <div class="about-bottom" id="about-bottom">
+        <div class="about-bottom-scroll" id="awardsContainer">
+            <%
+                List<Films> awardsData = (List<Films>) request.getAttribute("awardsData");
+                for (int i = 0; i < awardsData.size(); i++) {
+                    Films award = awardsData.get(i);
+                    String base64Image = award.getBase64Poster();
+            %>
+            <div class="award-card">
+                <img src="data:image/jpeg;base64, <%= base64Image %>" class="award-card-img"/>
+            </div>
+            <% } %>
         </div>
     </div>
 </body>
