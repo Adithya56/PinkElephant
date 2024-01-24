@@ -24,6 +24,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+              background-size: cover;
+	    background-repeat: no-repeat; /* Prevent image from repeating */
+	    height: 100vh; /* Set height to 100% of the viewport height */
         }
 
         .contact-us-left {
@@ -65,6 +68,7 @@
         .contact-us-right p {
             font-size: 1.5em;
             color: #333;
+            
         }
 
         form {

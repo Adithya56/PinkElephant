@@ -23,6 +23,19 @@
 		        projectsSection.scrollIntoView({ behavior: 'smooth' });
 		    }
 		}
+		
+		 document.addEventListener("DOMContentLoaded", function() {
+	            // Wait for the document to be fully loaded
+
+	            // Find the button element
+	            var ideaButton = document.querySelector(".idea");
+
+	            // Attach a click event listener to the button
+	            ideaButton.addEventListener("click", function() {
+	                // Redirect to the "get in touch" page when the button is clicked
+	                window.location.href = "/PinkElephant/contact-us";
+	            });
+	        });
 	</script>
 </head>
 
@@ -126,7 +139,9 @@
 				<button class="idea">Have any idea?</button>
 			</div>
 		</div>
-		<%@ include file="projects.jsp" %>
+		<div id="projects">
+			<%@ include file="projects.jsp" %>
+		</div>
 	</main>
 <%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

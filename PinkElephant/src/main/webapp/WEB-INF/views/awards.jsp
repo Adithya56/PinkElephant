@@ -21,19 +21,20 @@
         margin: 10px;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       /*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     }
 
     .award-card-img {
         width: 100%;
-        height: auto;
+        height: 150px;
         border-radius: 20px;
     }
 
     .award-card-content {
         padding: 10px;
         text-align: center;
-        background-color: #f5f5f5;
+        background-color: white;
+        color:#000;
         border-radius: 0 0 20px 20px;
     }
 

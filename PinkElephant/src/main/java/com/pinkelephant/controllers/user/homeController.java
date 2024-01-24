@@ -61,7 +61,7 @@ public class homeController {
 	    // Check if the data is already in the session
 	    String services = (String) session.getAttribute(className);
 
-	    if (services == null) {
+	    if (services.isEmpty()) {
 	        // If not in the session, query the database
 	        services = homeservice.getServicesOnCategory(className);
 

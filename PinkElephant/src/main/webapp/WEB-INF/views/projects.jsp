@@ -7,6 +7,11 @@
 <head>
     <meta charset="UTF-8">
     <style>
+    .about-bottom{
+    margin-left: 50px;
+    margin-right: 50px;
+    }
+    
         .about-bottom-scroll {
             display: flex;
             flex-wrap: wrap;
@@ -23,7 +28,7 @@
         }
 
         .award-card-img {
-            width: 50%; /* Use 100% width to make sure the image fills the container */
+            width: 70%; /* Use 100% width to make sure the image fills the container */
             height: auto;
             border-radius: 20px;
             margin: 0 auto; /* Center the image horizontally */
