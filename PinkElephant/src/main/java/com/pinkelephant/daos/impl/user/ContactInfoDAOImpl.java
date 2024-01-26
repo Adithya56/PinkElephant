@@ -40,15 +40,16 @@ public class ContactInfoDAOImpl implements ContactInfoDAO {
     }
 
     private String fetchData(String columnName) {
-        String query = "SELECT " + columnName + " FROM ContactInfo WHERE id = 1";
+	String query = "SELECT value FROM ContactInfo WHERE key = ?";
         String result = null;
 
         try {
-            result = jdbcTemplate.queryForObject(query, String.class);
+	    result = jdbcTemplate.queryForObject(query, new Object[] { columnName }, String.class);
         } catch (EmptyResultDataAccessException e) {
             // Handle the case where no data is found
             e.printStackTrace();
         }
+
 
         return result;
     }

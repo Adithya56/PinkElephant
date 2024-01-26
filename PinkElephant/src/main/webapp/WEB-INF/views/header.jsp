@@ -25,7 +25,10 @@
 <script src="./js/home.js"></script>
 </head>
 <body>
-
+<% 
+            List<SocialMedia> socialMediaList = (List<SocialMedia>)request.getAttribute("socialMedia"); 
+            String phoneNumber=(String)request.getAttribute("phoneNumber");
+            String address=(String)request.getAttribute("address");%>
 	<div class="header-top">
 		<!-- Logo on the top left -->
 		<a href="/PinkElephant/"> <img
@@ -53,12 +56,12 @@
 				</div>
 				<div class="menu-card-center">
 					<p>
-						+91 9574634568</br>hello@pinkelephant.com</br>Madhapur, Hyderabad
+						<%=phoneNumber %></br>hello@pinkelephant.com</br><%=address %>
 					</p>
 				</div>
 				 <div class="menu-card-bottom">
         <% 
-            List<SocialMedia> socialMediaList = (List<SocialMedia>)request.getAttribute("socialMedia");
+           /*  List<SocialMedia> socialMediaList = (List<SocialMedia>)request.getAttribute("socialMedia"); */
             if(socialMediaList != null) {
                 Iterator<SocialMedia> iterator = socialMediaList.iterator();
                 while(iterator.hasNext()) {

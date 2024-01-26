@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pinkelephant.daos.user.ContactInfoDAO;
 import com.pinkelephant.daos.user.FilmImagesDAO;
 import com.pinkelephant.daos.user.SocialMediaDAO;
 import com.pinkelephant.daos.user.homeDAO;
@@ -44,6 +45,8 @@ public class homeController {
 	private SocialMediaDAO socialMediaDAO;
 	@Autowired
 	private SendEmail sendEmail;
+	@Autowired
+	private ContactInfoDAO contactInfoDAO;
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
 	// url mapping for home page
@@ -58,7 +61,10 @@ public class homeController {
         List<SocialMedia> socialMedia = socialMediaDAO.getAllSocialMedia();
         // Add awards data to the model
         model.addAttribute("socialMedia", socialMedia);
-        
+	String phoneNumber = contactInfoDAO.getPhoneNumber();
+	String address = contactInfoDAO.getAddress();
+	model.addAttribute("phoneNumber", phoneNumber);
+	model.addAttribute("address", address);
 		return "home";
 	}
 	
