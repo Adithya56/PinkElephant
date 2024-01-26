@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -20,13 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pinkelephant.daos.user.FilmImagesDAO;
+import com.pinkelephant.daos.user.SocialMediaDAO;
 import com.pinkelephant.daos.user.homeDAO;
 import com.pinkelephant.model.user.Award;
+import com.pinkelephant.model.user.Films;
+import com.pinkelephant.model.user.SendEmail;
+import com.pinkelephant.model.user.SocialMedia;
 import com.pinkelephant.model.user.User;
 import com.pinkelephant.model.user.emailServices;
 import com.pinkelephant.services.user.homeServices;
-import com.pinkelephant.model.user.sendEmail;
-import com.pinkelephant.model.user.Films;
 
 @Controller
 public class homeController {
@@ -39,7 +40,10 @@ public class homeController {
 	private homeDAO hDAO;
 	@Autowired
 	private FilmImagesDAO filmImagesDAO;
-	
+	@Autowired
+	private SocialMediaDAO socialMediaDAO;
+	@Autowired
+	private SendEmail sendEmail;
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
 	// url mapping for home page
@@ -47,9 +51,14 @@ public class homeController {
 	public String getHomePage(Model model) {
 	logger.info("PinkElephant.homeController  :  getHomePage()");
 		// call the view
+	
 	List<Films> awardsData = filmImagesDAO.getFilmImages();
         // Add awards data to the model
         model.addAttribute("awardsData", awardsData);
+        List<SocialMedia> socialMedia = socialMediaDAO.getAllSocialMedia();
+        // Add awards data to the model
+        model.addAttribute("socialMedia", socialMedia);
+        
 		return "home";
 	}
 	
@@ -110,7 +119,7 @@ public class homeController {
 	@ResponseBody
 	public boolean sendEmail(@ModelAttribute("user") User user) {
 	    logger.info("PinkElephant.homeController  :  sendEmailDetails()");
-		boolean generateEmail = (new sendEmail()).sendEmail(user);
+	    boolean generateEmail = sendEmail.sendmail(user);
 		return generateEmail; 
 	}
 

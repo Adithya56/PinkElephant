@@ -1,7 +1,6 @@
 package com.pinkelephant.model.user;
 
 import java.util.Properties;
-import java.util.Random;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -11,12 +10,24 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class sendEmail {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-	public boolean sendEmail(User user) {
+import com.pinkelephant.daos.user.ContactInfoDAO;
+
+@Component
+public class SendEmail {
+    private ContactInfoDAO contactInfoDAO;
+
+    @Autowired
+    public SendEmail(ContactInfoDAO contactInfoDAO) {
+	this.contactInfoDAO = contactInfoDAO;
+    }
+
+	public boolean sendmail(User user) {
 		
-		final String me = "akshayaakula047@gmail.com";
-		final String password = "drrtoqiwlqgkwrum";
+	    final String me = contactInfoDAO.getMailId();
+	    final String password = contactInfoDAO.getMailPwd();// "drrtoqiwlqgkwrum";
 
 		// Get form data from the request
 		String firstMsg = "Dear team,";
