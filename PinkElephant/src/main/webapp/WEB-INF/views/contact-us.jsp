@@ -22,11 +22,11 @@
         .contact-us {
             margin-top: -20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: column;
             align-items: center;
-              background-size: cover;
-	    background-repeat: no-repeat; /* Prevent image from repeating */
-	    height: 100vh; /* Set height to 100% of the viewport height */
+            background-size: cover;
+		    background-repeat: no-repeat; /* Prevent image from repeating */
+		    height: auto; /* Set height to 100% of the viewport height */
         }
 
         .contact-us-left {
@@ -85,6 +85,7 @@
             border: 1px solid;
             border-radius: 30px;
             background-color: #fffcf3;
+            box-sizing: border-box;
         }
 
         form input[type="submit"] {
@@ -98,6 +99,146 @@
         form input[type="submit"]:hover {
             background-color: #d2595f;
         }
+        
+  @media (max-width: 768px) {
+    .contact-us {
+        margin-top: -20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Change from 'column' to 'center' */
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: auto;
+    }
+
+    .contact-us-left,
+    .contact-us-right {
+        flex: 1;
+        max-width: 80%; /* Adjust the max-width as needed */
+        padding: 20px;
+        border-radius: 15px;
+        margin: 0 auto; /* Center the elements horizontally */
+    }
+
+    .contact-us-left-top {
+        font-size: 2em;
+        color: #f37173;
+        margin-bottom: 20px; /* Adjust margin as needed */
+    }
+
+    .contact-us-left img {
+        width: 100%;
+        max-width: 200px;
+        margin-left: 0;
+    }
+
+    .contact-us-left-bottom p {
+        color: #000;
+    }
+
+    .contact-us-right p {
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+
+    form input {
+        width: 80%; /* Adjust the width as needed */
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid;
+        border-radius: 30px;
+        background-color: #fffcf3;
+        box-sizing: border-box;
+    }
+
+    form input[type="submit"] {
+        width: 50%; /* Adjust the width as needed */
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact-us-left-top {
+        font-size: 1.5em;
+    }
+
+    .contact-us-right p {
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 768px) {
+    .contact-us {
+        margin-top: -20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content horizontally */
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: auto;
+    }
+
+    .contact-us-left,
+    .contact-us-right {
+        flex: 1;
+        max-width: 80%; /* Adjust the max-width as needed */
+        padding: 20px;
+        border-radius: 15px;
+        margin: 0 auto; /* Center the elements horizontally */
+    }
+
+    .contact-us-left-top {
+        font-size: 2em;
+        color: #f37173;
+        margin-bottom: 20px; /* Adjust margin as needed */
+        text-align: center;
+    }
+
+   .contact-us-left img {
+    display: block; /* Make sure the image is treated as a block element */
+    margin-left: auto; /* Center the image by setting left margin to auto */
+    margin-right: auto; /* Center the image by setting right margin to auto */
+    width: 100%;
+    max-width: 200px;
+}
+
+    .contact-us-left-bottom p {
+    	text-align: center;
+        color: #000;
+    }
+
+    .contact-us-right p {
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+
+    form input {
+        width: 80%; /* Adjust the width as needed */
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid;
+        border-radius: 30px;
+        background-color: #fffcf3;
+        box-sizing: border-box;
+    }
+
+    form input[type="submit"] {
+        width: 50%; /* Adjust the width as needed */
+    }
+}
+
     </style>
 
     <script>

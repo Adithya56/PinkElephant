@@ -4,7 +4,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>Pink Elephant</title>
 	<link rel="stylesheet" type="text/css" href="./css/home.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -34,6 +33,13 @@
 	            ideaButton.addEventListener("click", function() {
 	                // Redirect to the "get in touch" page when the button is clicked
 	                window.location.href = "/PinkElephant/contact-us";
+	            });
+	            var viewmorebtn = document.querySelector(".viewmorebtn");
+
+	            // Attach a click event listener to the button
+	            viewmorebtn.addEventListener("click", function() {
+	                // Redirect to the "get in touch" page when the button is clicked
+	                window.location.href = "/PinkElephant/about";
 	            });
 	        });
 	</script>

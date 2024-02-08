@@ -428,74 +428,160 @@ header {
     background-color: #d55e5d; /* Set a different color on hover */
 }
 
-.footer-wrapper {
-    flex-grow: 1;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f37372;
-    color: #fff;
-    padding: 5px;
-    border-top-left-radius: 15px; /* Adjust the radius as needed */
-    border-top-right-radius: 15px; /* Adjust the radius as needed */
-    margin-top: auto; /* This pushes the footer to the bottom */
-}
-
-.left,
-.right {
-    display: flex;
-    align-items: center;
-}
-
-.center {
-    display: flex;
-    align-items: center;
-}
-
-.footer img {
-    margin: 0 10px; /* Adjust the spacing between icons as needed */
-}
-
-.center p {
-    margin: 0; /* Remove default margin for the paragraph */
-}
-
-.center a {
-	font-family: AlbraTRIAL-Regular-Identity-H;
-    margin: 30px; /* Adjust spacing between anchor tags as needed */
-    color: #fff; /* Set the default color for anchor tags */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Add smooth transition for color change on hover */
-    font-weight: bold; /* Add bold font style */
-}
-
-.center a:hover {
-    color: #000000; /* Change text color to white on hover */
-    text-decoration: none; /* Remove underline */
-}
-
-.right a {
-    margin-right: 25px; /* Adjust spacing between anchor tags as needed */
-}
-
-.fab {
-    color: #fff;
-}
-
-.fab:hover{
-	color:#000000
-}
-
 /* Apply media query for responsiveness */
 @media (max-width: 768px) {
-    .services-wrapper {
-        flex-direction: column;
+	
+	.header-content {
+        flex-direction: column-reverse; /* Change direction to column and reverse order for small screens */
+        align-items: center; /* Center items on small screens */
     }
 
-    .services-right {
-        width: 100%;
+     .header-left,
+    .header-right {
+        width: 100%; /* Set the width to 100% for both header-left and header-right on small screens */
+        text-align: center; /* Center the text in both sections */
+        margin: 0; /* Remove margin for better spacing on small screens */
+        padding: 10px; /* Add padding for better spacing on small screens */
     }
-	}
+
+    .header-right {
+        margin-top: 10px; /* Add margin-top for separation between header-left and header-right on small screens */
+    }
+
+    .header-left button.projects {
+        margin-top: 10px; /* Add margin-top for separation between the text and the button on small screens */
+        margin-bottom: 20px;
+    }
+
+     .slideshow-container {
+        width: 100%; /* Set the max-width to 100% for small screens */
+    }
+
+    .slideshow-container .slide {
+       width: 100%; /* Set the max-width to 100% for small screens */
+    }
+
+    .slideshow-container .slide img {
+        width: 100%; /* Make the images fill the container on small screens */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 20px; /* Add border radius for curved borders */
+    }
+
+    .story-main {
+        padding: 20px; /* Add padding for better spacing on small screens */
+        text-align: center; /* Center text in the story-main section on small screens */
+    }
+
+    .story-left,
+    .story-right {
+        width: 100%; /* Set the width to 100% for both story-left and story-right on small screens */
+        margin: 0; /* Remove margin for better spacing on small screens */
+    }
+
+    .story-right button.idea {
+        margin-top: 10px; /* Add margin-top for separation between the text and the button on small screens */
+    }
+    
+	.aboutus-content {
+        flex-direction: column; /* Change direction to column for small screens */
+        align-items: center; /* Center items on small screens */
+        text-align: center; /* Center text on small screens */
+    }
+
+    .aboutus-left {
+        padding-left: 0; /* Remove left padding on small screens */
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+
+   .aboutus-right {
+        display: none; /* Hide the aboutus-right section on small screens */
+        width: 100%; /* Set width to 100% for small screens */
+        padding-right: 0; /* Remove right padding on small screens */
+        margin-top: 20px; /* Add margin-top for separation between button and image on small screens */
+        text-align: center;
+    }
+    
+      .divisions-main {
+        font-family: AlbraTRIAL-Regular-Identity-H;
+        margin-left: 0; /* Remove margin for better spacing on small screens */
+        margin-right: 0; /* Remove right margin for better spacing on small screens */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text within divisions-main */
+    }
+
+    .divisions-row {
+        flex-direction: column; /* Display divisions in a column on small screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .divisions-box-1,
+    .divisions-box-2,
+    .divisions-box-3 {
+        width: 100%; /* Set width to 100% for small screens */
+    }
+
+    .divisions-box-img img {
+        width: 100%; /* Make the images fill the container on small screens */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Add border-radius to images for smaller screens */
+    }
+    
+     .divisions-top {
+        margin-top: 50px; /* Reduce margin-top for smaller screens */
+    }
+
+    .divisions-heading {
+        margin-bottom: 10px; /* Add margin-bottom for better spacing on smaller screens */
+        text-align: center;
+    }
+
+    .divisions-box-title{
+    	text-align: center;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        left: 10px; /* Adjust the left position as needed */
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .menu-card.open {
+        width: 80%; /* Set the width to 80% of the screen when open */
+    }
+
+    .menu-card-top {
+        flex-direction: column; /* Display links in a column */
+        align-items: center; /* Align links to the left */
+        padding: 20px;
+    }
+
+    .menu-card-top a {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-bottom: 15px; /* Adjust spacing between links */
+    }
+
+    .menu-card-center p {
+        font-size: 14px; /* Adjust the font size for small screens */
+        margin-left: 0; /* Align text to the left */
+        text-align: center; /* Align text to the left */
+    }
+
+    .menu-card-bottom {
+        flex-direction: column; /* Display buttons in a column */
+        align-items: left; /* Align buttons to the left */
+        padding: 0; /* Remove padding */
+        margin-left: 0; /* Align the buttons to the left */
+    }
+
+    .menu-card-bottom button {
+        width: 100%; /* Set the width of buttons to 100% */
+        margin-bottom: 0; /* Remove margin between buttons */
+        padding: 10px 0; /* Add padding to buttons if needed */
+        text-align: center; /* Align text to the left */
+    }
+}

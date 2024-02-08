@@ -55,7 +55,7 @@
 		}
 		
 		.about-center-left{
-			margin-left:100px;
+			margin-left:50px;
 		}
 		.about-center-left-head {
 		  font-size: 2.5em;

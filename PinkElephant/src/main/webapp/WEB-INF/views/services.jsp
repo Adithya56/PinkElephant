@@ -95,7 +95,7 @@
 	}
 		
 	.services-left {
-	    margin-left: 100px;
+	    margin-left: 50px;
 	    flex: 1;
 	    padding: 10px;
 	    box-sizing: border-box;
@@ -150,14 +150,23 @@
 	
 	/* Apply media query for responsiveness */
 	@media (max-width: 768px) {
-	    .services-wrapper {
-	        flex-direction: column;
-	    }
-	
-	    .services-right {
-	        width: 100%;
-	    }
-	}
+    .services-wrapper {
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        text-align: center;
+    }
+
+    .services-right {
+        display: none;
+        width: 100%;
+    }
+
+    .services-bottom button {
+        display: none;
+    }
+}
+
 
 </style>
 
